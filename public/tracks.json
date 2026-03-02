@@ -1,0 +1,65 @@
+[
+  {
+    "id": "kolybel",
+    "url": "/audio/kolybel.mp3",
+    "title": "Kolibelnaya",
+    "artist": "DJ MurrMyau",
+    "album": "Black & W   creator DJ MurrMyau",
+    "year": "2026",
+    "duration": 381
+  },
+  {
+    "id": "Limbo",
+    "url": "/audio/Limbo.mp3",
+    "title": "Limbo",
+    "artist": "Неизвестно",
+    "album": "Black & W   creator DJ MurrMyau",
+    "year": "2025",
+   "duration": 159
+  },
+  {
+    "id": "Meteorite_is_approaching",
+    "url": "/audio/Meteorite_is_approaching.mp3",
+    "title": "Meteorite is approaching",
+    "artist": "DJ MurrMyau",
+    "album": "Black & W   creator DJ MurrMyau",
+    "year": "2025",
+    "duration": 305
+  },
+    {
+    "id": "About",
+    "url": "/audio/About.mp3",
+    "title": "About",
+    "artist": "DJ MurrMyau",
+    "album": "Black & W   creator DJ MurrMyau",
+    "year": "2026",
+    "duration": 548
+  },	
+  {
+    "id": "morning_trash",
+    "url": "/audio/morning_trash.mp3",
+    "title": "Morning trash",
+    "artist": "DJ MurrMyau",
+    "album": "Black & W   creator DJ MurrMyau",
+    "year": "2026",
+    "duration": 926
+  },
+  {
+    "id": "The_Legend",
+    "url": "/audio/The_Legend.mp3",
+    "title": "The Legend",
+    "artist": "DJ MurrMyau",
+    "album": "Black & W   creator DJ MurrMyau",
+    "year": "2025",
+    "duration": 300
+  },
+  {
+  "id": "Space_walk_v35",
+  "url": "/audio/Space_walk_v35.mp3",
+  "title": "Space_walk_v35",
+  "artist": "DJ MurrMyau",
+  "album": "Black & W   creator DJ MurrMyau",
+  "year": "2026",
+  "duration": 381
+}
+]
