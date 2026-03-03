@@ -13,7 +13,7 @@
     <!-- <h2>Плейлист 1: Джаз</h2> -->
   
   <!-- Общий прогресс-бар -->
-  <div class="progress-container" v-if="activeTrack1" @click="onProgressClick">
+  <div class="progress-container" v-if="activeTrack1" @click="onProgressClickG">
       <div class="progress-glob" v-if="activeTrack1" :style="{ width: globalProgress + '%' }"></div>
     </div>
  <div class="marquee" v-if="activeTrack1"><span>{{ marqueText }}</span></div>        
@@ -191,8 +191,8 @@ function resizeCanvas() {
 }
 
 // Клик по прогресс-бару
-function onProgressClick(event) {
-  const audio = audioRef.value
+function onProgressClickG(event) {
+  const audio = audioGlobRef.value
   if (!audio || !audio.duration) return
 
   const rect = event.currentTarget.getBoundingClientRect()
@@ -511,4 +511,5 @@ function connectAudioToVisualizer(track) {
   font-weight: 300;  /* font-medium */
   color: #278268;    /* text-gray-900 */
 } 
+
 </style>
