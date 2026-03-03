@@ -13,7 +13,7 @@
     <!-- <h2>Плейлист 1: Джаз</h2> -->
   
   <!-- Общий прогресс-бар -->
-  <div class="progress-container" v-if="activeTrack1">
+  <div class="progress-container" v-if="activeTrack1" @click="onProgressClick">
       <div class="progress-glob" v-if="activeTrack1" :style="{ width: globalProgress + '%' }"></div>
     </div>
  <div class="marquee" v-if="activeTrack1"><span>{{ marqueText }}</span></div>        
@@ -24,17 +24,17 @@
   <div class="toggle-track"></div>
   <span class="toggle-label">AutoPLAY</span>
   </label>
-       <AudioPlayer1 v-if="!stop1" :playlist="Electron" :stop1="stop1" :isPlayingGl="isPlayingGl"
+       <AudioPlayer1 v-if="!stop1" :playlist="Spaceelectro" :stop1="stop1" :isPlayingGl="isPlayingGl"
         @track-change="onTrackChange"
         @progress-update="onProgressUpdate"
         @stop-state="offStopState"
         @play-state="onPlayState"/>
-        <AudioPlayer2 v-if="!stop2" :playlist="Spaceelectro" :stop2="stop2" :isPlayingGl="isPlayingGl"
+        <AudioPlayer2 v-if="!stop2" :playlist="Electron" :stop2="stop2" :isPlayingGl="isPlayingGl"
         @track-change="onTrackChange"
         @progress-update="onProgressUpdate"
         @stop-state="offStopState"
         @play-state="onPlayState"/>
-        <AudioPlayer3 v-if="!stop3" :playlist="Electron" :stop3="stop3" :isPlayingGl="isPlayingGl"
+        <AudioPlayer3 v-if="!stop3" :playlist="rw" :stop3="stop3" :isPlayingGl="isPlayingGl"
         @track-change="onTrackChange"
         @progress-update="onProgressUpdate"
         @stop-state="offStopState"
@@ -60,7 +60,7 @@ import AudioPlayer3 from './components/AudioPlayer3.vue'
 
 // Эти данные могут приходить из tracks.json или API
 const Spaceelectro = ref([])
-const Electro = ref([])
+const Electron = ref([{}])
 const rw = ref([])
 
 //**************************************************************** */
@@ -84,13 +84,15 @@ const prbare = ref(null)
         const limg = ref(null)
         const logoImg = ref(null)
 let marqueText = ref('Инфо...');
+const defaultTracks = ref([{},{}])//['https://raw.githubusercontent.com/kirov-sk/scool/blob/main/Limbo.mp3', 'https://raw.githubusercontent.com/kirov-sk/scool/blob/main/The%20Legend.mp3', 'https://raw.githubusercontent.com/SKB-tg/50projects50days/blob/master/Kolybel.mp3']; // Твоя база, рандом
 const defaultTrack = { title: 'Тематический', url: ''};//defaultTracks[Math.floor(Math.random() * defaultTracks.length)] };
 const albumTrack = { title: 'Мой трек', url: 'album.mp3' };
 const thematicTrack = { title: 'Известный', url: 'thematic.mp3' };
     if (canvas.value != null) {ctx.value = canvas.value.getContext('2d')}
 //****************************************** */
-const Electron = [{ title: 'Bushwacka Album', artist: 'DJ Bushwacka', url: '/audio/Bushwacka.mp3', duration: 3000},
-   { title: 'Track', artist: 'DJ Bushwacka', url: '/audio/Bushwackas.mp3', duration: 200}, {title: '107FM_18_BACK_TO_THE_UNIVERSE_2000', artist: 'yy kkl', url: '/audio/107FM_18_BACK_TO_THE_UNIVERSE_2000.mp3', duration: 5750}
+Electron.value = [{ title: 'Blue in Green', artist: 'Miles Davis', url: '/audio/Limbo.mp3', duration: 200 },
+   { title: 'Blue in 22', artist: 'yy kkl', url: '/audio/morning_trash.mp3', duration: 200}, {title: '107FM_18_BACK_TO_THE_UNIVERSE_2000', artist: 'yy kkl', url: '/audio/107FM_18_BACK_TO_THE_UNIVERSE_2000.mp3', duration: 200},
+{ title: '4 Tracks', artist: 'Depecne Mode', url: '/audio/Dep_Mode_vinil_A_41.mp3', duration: 1200}
 ]
 // Общее состояние для всех плееров
 const activeTrack1 = ref(null)
@@ -108,7 +110,7 @@ function onTrackChange(audioRef, track, idplaylist) {
     console.log(audioRef.value)
 audioGlobRef.value = audioRef.value}
     if (track != null) { 
-  marqueText = `Трек: ${track.title || 'Неизвестно'} | Артист: ${track.artist || 'Неизвестно'} | 'Альбом:', ${track.album || 'Неизвестно' || 'Дефолт'}| Файл: ${ track.id}.mp3  | Длительность: ${activeTrack1 ? activeTrack1.value.duration : track.duration} сек`;
+  marqueText = `Трек: ${track.title || 'Неизвестно'} | Артист: ${track.artist || 'Неизвестно'} | 'Альбом:', ${track.album || 'Неизвестно' || 'Дефолт'}| Файл: ${ track.id}.mp3  | Длительность: ${(activeTrack1.value.duration!=NaN) ? activeTrack1.value.duration : track.duration}. ${track.duration}сек`;
 console.log(audioGlobRef.value)
 }
 if (!audioContext.value) {
@@ -151,20 +153,6 @@ function offStopState(state, idplaylist) {
 function onPlayState(isPlaying, idplaylist) {
     isPlayingGl.value = isPlaying
     console.log(isPlayingGl.value)
-    //console.log(checkbox)
-    // if (!isPlaying && idplaylist) {
-    // if ((idplaylist === '111') && !stop1.value) {
-    //     stop2.value = true
-    //     stop3.value = true
-    // }
-    // if ((idplaylist === '222') && !stop2.value) {
-    //     stop1.value = true
-    //     stop3.value = true    }
-    // if ((idplaylist === '333') && !stop3.value) {
-    //     stop1.value = true
-    //     stop2.value = true
-    // }
-//}
   // Можно, например,
   //  менять иконку глобальной кнопки
 }
@@ -200,6 +188,17 @@ function initAudioContext() {
 function resizeCanvas() {
     canvas.value.width = canvas.value.offsetWidth;
     canvas.value.height = canvas.value.offsetHeight;
+}
+
+// Клик по прогресс-бару
+function onProgressClick(event) {
+  const audio = audioRef.value
+  if (!audio || !audio.duration) return
+
+  const rect = event.currentTarget.getBoundingClientRect()
+  const clickX = event.clientX - rect.left
+  const percent = Math.max(0, Math.min(1, clickX / rect.width))
+  audio.currentTime = percent * audio.duration
 }
 
 onMounted(() => {
