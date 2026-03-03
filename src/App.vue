@@ -91,8 +91,8 @@ const thematicTrack = { title: 'Известный', url: 'thematic.mp3' };
     if (canvas.value != null) {ctx.value = canvas.value.getContext('2d')}
 //****************************************** */
 Electron.value = [{ title: 'Blue in Green', artist: 'Miles Davis', url: '/audio/Limbo.mp3', duration: 200 },
-   { title: 'Blue in 22', artist: 'yy kkl', url: '/audio/morning_trash.mp3', duration: 200}, {title: '107FM_18_BACK_TO_THE_UNIVERSE_2000', artist: 'yy kkl', url: '/audio/107FM_18_BACK_TO_THE_UNIVERSE_2000.mp3', duration: 200},
-{ title: '4 Tracks', artist: 'Depecne Mode', url: '/audio/Dep_Mode_vinil_A_41.mp3', duration: 1200}
+   { title: 'Track', artist: 'DJ Bushwacka', url: '/audio/Bushwackas.mp3', duration: 200}, {"id": "107FM_18_BACK_TO_THE_UNIVERSE_2000", 'title': '107FM_18_BACK_TO_THE_UNIVERSE_2000', 'artist': 'yy kkl', 'url': '/audio/107FM_18_BACK_TO_THE_UNIVERSE_2000.mp3',  'duration': 200},
+{"id": "Dep_Mode_vinil_A_41", 'title': '4 Tracks: Depecne Mode', 'artist': 'Depecne Mode', 'url': '/audio/Dep_Mode_vinil_A_41.mp3', 'duration': 1200}
 ]
 // Общее состояние для всех плееров
 const activeTrack1 = ref(null)
@@ -110,7 +110,7 @@ function onTrackChange(audioRef, track, idplaylist) {
     console.log(audioRef.value)
 audioGlobRef.value = audioRef.value}
     if (track != null) { 
-  marqueText = `Трек: ${track.title || 'Неизвестно'} | Артист: ${track.artist || 'Неизвестно'} | 'Альбом:', ${track.album || 'Неизвестно' || 'Дефолт'}| Файл: ${ track.id}.mp3  | Длительность: ${(activeTrack1.value.duration!=NaN) ? activeTrack1.value.duration : track.duration}. ${track.duration}сек`;
+  marqueText = `Трек: ${track.title || 'Неизвестно'} | Артист: ${track.artist || 'Неизвестно'} | 'Альбом:', ${track.album || 'Неизвестно' || 'Дефолт'}| Файл: ${ track.id}.mp3  | Длительность: ${audioRef.value.duration || track.duration}сек`;
 console.log(audioGlobRef.value)
 }
 if (!audioContext.value) {
@@ -337,7 +337,7 @@ function connectAudioToVisualizer(track) {
 
 <style scoped>
          .track-info {display: block;
-            margin: 10px 0;
+            margin: 15px 0;
             font-size: 18px;
             font-weight: bold;
             color: #0ff;
@@ -378,7 +378,7 @@ function connectAudioToVisualizer(track) {
 
         .limg {
             position: absolute;
-            top: 25px;
+            top: 24px;
             width: 450px;
             height: 450px;
             background: #00ff03;
@@ -407,12 +407,12 @@ function connectAudioToVisualizer(track) {
 			    max-height: 24px;
             width: 100%;
             max-width: 600px;
-            margin: 10px auto;
+            margin: 15px auto;
             overflow: hidden;
             white-space: nowrap;
             box-sizing: border-box;
             color: #0f0;
-            font-size: 14px;
+            font-size: 20px;
         }
 
         .marquee span {
@@ -511,5 +511,4 @@ function connectAudioToVisualizer(track) {
   font-weight: 300;  /* font-medium */
   color: #278268;    /* text-gray-900 */
 } 
-
 </style>

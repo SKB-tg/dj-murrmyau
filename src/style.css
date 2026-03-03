@@ -210,6 +210,8 @@ h1 {
         }
         .progress,.progress-fill {display: none;}
         button:focus-visible {outline: none;}
+        button:focus {outline: none;}
+
         /* button:hover {
             transform: scale(1.05);
             box-shadow: 0 0 20px rgba(0,255,255,0.8);
@@ -314,12 +316,17 @@ h1 {
             /* .logo-wrapper {
                  margin-bottom: 10px;
             } */
-            .logo-img, .limg {
-                
+           .limg {                
                 max-width: 200px;
-                width: 50vw;
+                width: 50vw; 
                 max-height: 200px;
                 height: 50vw;
+            }
+            .logo-img {                
+                max-width: 216px;
+                /* width: 50vw;  */
+                max-height: 216px;
+                /* height: 50vw; */
             }
             .visualizer {
                 height: 56.25vw; /* Для 16:9, но в портрете ~9:16 эффект */
@@ -380,6 +387,8 @@ h1 {
                 margin: 0;
                 border-radius: 12px 12px 0 0;
             }
+            button:focus-visible {outline: none;}
+            button:focus {outline: none;}
 
             .btn {
                 padding: 7px 8px 9px 10px;
