@@ -1,3 +1,4 @@
+<!-- src/components/AudioPlayer.vue -->
 <template>
   <div>
 
@@ -8,10 +9,11 @@
     </div> -->
     <!-- Двойная кнопка: Play/Pause + Next -->
     <div class="controls-player" >
+     <button @click="playBack" class="btn btn-secondary-left">⏭️</button>
       <button @click="togglePlayPause" class="btn btn-primary">
-        {{ (isPlaying) ? 'my album   ⏸️' : 'my album   ▶️' }}
+        {{ (isPlaying) ? 'tematics long track  ⏸️' : 'tematics long track ▶️' }}
       </button>
-      <button @click="playNext" class="btn btn-secondary">⏭️</button>
+  <button @click="playNext" class="btn btn-secondary-right">⏭️</button>
     </div>
 
     <!-- Прогресс-бар (опционально) -->
@@ -84,7 +86,7 @@ onMounted(async() => {
      idplaylist.value
     )
   })
-  audio.addEventListener('play', () => { console.log(props.stop1)
+  audio.addEventListener('play', () => { console.log(currentTrack.value)
     isPlaying.value = true
        emit('track-change', audioRef,  currentTrack.value, idplaylist.value)
      emit('play-state',
@@ -102,17 +104,17 @@ onMounted(async() => {
     isPlaying.value = false
     })
  })
-if (audio) {
- audio.addEventListener('timeupdate', () => {
-    if (audio.duration) {
-      progressPercent.value = (audio.currentTime / audio.duration) * 100
-      emit('progress-update', {
-      progressPercent,
-      currentTime: audio.currentTime,
-      duration: audio.duration
-    })
-  }  })
-}
+// if (audio) {
+//  audio.addEventListener('timeupdate', () => {
+//     if (audio.duration) {
+//       progressPercent.value = (audio.currentTime / audio.duration) * 100
+//       emit('progress-update', {
+//       progressPercent,
+//       currentTime: audio.currentTime,
+//       duration: audio.duration
+//     })
+//   }  })
+//}
 // Переключение Play/Pause
 function togglePlayPause() {console.log(props.stop1)
   const audio = audioRef.value
@@ -240,11 +242,14 @@ display: flex;
   cursor: pointer;
   font-size: 16px;
 }
-.btn-primary { background: #278268; color: white;
+.btn-secondary-left { background: #278268; color: white;
   border-radius:  16px 2px 2px 16px;
+}
+.btn-primary { background: #278268; color: white;
+  border-radius:  2px 2px 2px 2px;
   width: 200px;
- }
-.btn-secondary { background: #278268; color: white;
+}
+ .btn-secondary-right { background: #278268; color: white;
   border-radius:  2px 16px 16px 2px;
 }
  .progress {
