@@ -378,7 +378,7 @@ function connectAudioToVisualizer(track) {
 
         .limg {
             position: absolute;
-            top: 24px;
+            top: 25px;
             width: 450px;
             height: 450px;
             background: #00ff03;
@@ -511,4 +511,5 @@ function connectAudioToVisualizer(track) {
   font-weight: 300;  /* font-medium */
   color: #278268;    /* text-gray-900 */
 } 
+
 </style>
