@@ -10,6 +10,8 @@
                     <div ref="eye" class="eye right" ></div>
                 </div>
             </div>
+        <img @click="onlogoBoost" src="/favicon-16x15.png" style="position:absolute;right:-20px;top:20px" class="btn boost">
+                
     <!-- <h2>Плейлист 1: Джаз</h2> -->
   
   <!-- Общий прогресс-бар -->
@@ -80,6 +82,7 @@ const particles = ref(null)
 const canvas = ref(null)
 const currentTrack = ref({ title: 'Выберите', url: '', artist: '', duration: 0 });
 const prbare = ref(null)
+         const butImg = ref(0)
          const eye = ref(null)
         const limg = ref(null)
         const logoImg = ref(null)
@@ -245,6 +248,16 @@ function connectAudioToVisualizer(track) {
     source.value.connect(analyser.value);
     analyser.value.connect(audioContext.value.destination);
 }}
+        function onlogoBoost() {
+            butImg.value++ 
+           if ((Math.floor(butImg.value/2) - butImg.value/2) === 0) {
+            logoImg.value.style = "max-width: 630px;"
+            limg.value.style = "height: 630px;width: 630px;"
+           } else {
+            logoImg.value.style = "max-width: 450px;"
+            limg.value.style = "height: 450px;width: 450px;" 
+           }           
+        }
         // === ЧЕРЕДОВАНИЕ ЭКРАНОВ ===
         function startScreenSwitch() {
             clearTimeout(screenTimer);
@@ -424,7 +437,16 @@ function connectAudioToVisualizer(track) {
             0% { transform: translate(0, 0); }
             100% { transform: translate(-100%, 0); }
         }   
- 
+ .boost {
+                cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            box-shadow: 0 5px 10px rgba(0,255,255,0.5);
+ }
+        boost:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 20px rgba(0,255,255,0.8);
+        }
 .btn {
   border-radius: 0;
   margin: 0;
@@ -511,5 +533,4 @@ function connectAudioToVisualizer(track) {
   font-weight: 300;  /* font-medium */
   color: #278268;    /* text-gray-900 */
 } 
-
 </style>

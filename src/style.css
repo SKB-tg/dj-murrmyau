@@ -395,6 +395,7 @@ h1 {
                 border: none;
                 cursor: pointer;
                 font-size: 10px;
+                color: #0ff;
                 }
                 .btn-primary { background: #278268; color: white;
                 border-radius:  14px 2px 2px 14px;
