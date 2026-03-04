@@ -16,7 +16,7 @@
     <div class="controls-player">
       <button @click="playBack" class="btn btn-secondary-left">⏭️</button>
       <button @click="togglePlayPause" class="btn btn-primary">
-        <span>{{ isPlaying ? 'my recomendation  ⏸️' : 'my recomendation ▶️' }}</span>
+        <span>{{ isPlaying ? 'my recomendation  ⏸️' : 'my recomendation ▶' }}</span>
       </button>
       <button @click="playNext" class="btn btn-secondary-right">⏭️</button>
     </div>

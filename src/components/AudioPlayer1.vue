@@ -12,7 +12,7 @@
 
         <button @click="playBack" class="btn btn-secondary-left">⏭️</button>
        <button @click="togglePlayPause" class="btn btn-primary">
-        {{ (isPlaying) ? 'my album  ⏸️' : 'my album ▶️' }}
+        {{ (isPlaying) ? 'my album' : 'my album ▶' }}
       </button>
       <button @click="playNext" class="btn btn-secondary-right">⏭️</button>
     </div>

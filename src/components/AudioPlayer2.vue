@@ -11,7 +11,7 @@
     <div class="controls-player" >
      <button @click="playBack" class="btn btn-secondary-left">⏭️</button>
       <button @click="togglePlayPause" class="btn btn-primary">
-        {{ (isPlaying) ? 'tematics long track  ⏸️' : 'tematics long track ▶️' }}
+        {{ (isPlaying) ? 'tematics long track  ⏸️' : 'tematics long track ▶' }}
       </button>
   <button @click="playNext" class="btn btn-secondary-right">⏭️</button>
     </div>
