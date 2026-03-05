@@ -44,6 +44,24 @@
     "year": "2026",
     "duration": 926
   },
+    {
+    "id": "B&W-Best",
+    "url": "/audio/B&W-Best.mp3",
+    "title": "Black & W Best",
+    "artist": "DJ MurrMyau",
+    "album": "Black & W   creator DJ MurrMyau",
+    "year": "2025",
+   "duration": 159
+  },
+    {
+    "id": "Remix_the_hall_of_the_mountain_king_E_G",
+    "url": "/audio/Remix_the_hall_of_the_mountain_king_E_G.mp3",
+    "title": "Remix 'the Hall of the Mountain King' E. G.",
+    "artist": "DJ MurrMyau",
+    "album": "Black & W   creator DJ MurrMyau",
+    "year": "2025",
+   "duration": 259
+  },
   {
     "id": "The_Legend",
     "url": "/audio/The_Legend.mp3",
