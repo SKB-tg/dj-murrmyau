@@ -6,8 +6,8 @@
                 <img  ref="logoImg" src="/DJ_MurrMyau_Album.jpg" class="logo-img" alt="DJ_MurrMyau.jpg">
                 <div ref="limg" style="right:0" class="limg"></div>
               <div class="cat-eyes">
-                    <div ref="eye" class="eye left"></div>
-                    <div ref="eye" class="eye right" ></div>
+                    <div class="eye left" :style="{ opacity: eyey }"></div>
+                    <div class="eye right" :style="{ opacity: eyey }"></div>
                 </div>
             </div>
         <img @click="onlogoBoost" src="/favicon-16x15.png" style="position:absolute;right:-20px;top:20px" class="btn boost">
@@ -83,7 +83,7 @@ const canvas = ref(null)
 const currentTrack = ref({ title: 'Выберите', url: '', artist: '', duration: 0 });
 const prbare = ref(null)
          const butImg = ref(0)
-         const eye = ref(null)
+         const eyey = ref(0)
         const limg = ref(null)
         const logoImg = ref(null)
 let marqueText = ref('Инфо...');
@@ -93,9 +93,12 @@ const albumTrack = { title: 'Мой трек', url: 'album.mp3' };
 const thematicTrack = { title: 'Известный', url: 'thematic.mp3' };
     if (canvas.value != null) {ctx.value = canvas.value.getContext('2d')}
 //****************************************** */
-Electron.value = [{ title: 'Blue in Green', artist: 'Miles Davis', url: '/audio/Limbo.mp3', duration: 200 },
-   { title: 'Track', artist: 'DJ Bushwacka', url: '/audio/Bushwackas.mp3', duration: 200}, {"id": "107FM_18_BACK_TO_THE_UNIVERSE_2000", 'title': '107FM_18_BACK_TO_THE_UNIVERSE_2000', 'artist': 'yy kkl', 'url': '/audio/107FM_18_BACK_TO_THE_UNIVERSE_2000.mp3',  'duration': 200},
-{"id": "Dep_Mode_vinil_A_41", 'title': '4 Tracks: Depecne Mode', 'artist': 'Depecne Mode', 'url': '/audio/Dep_Mode_vinil_A_41.mp3', 'duration': 1200}
+Electron.value = [{ 'title': 'Blue in Green', 'artist': 'Miles Davis', 'url': '/audio/Limbo.mp3', duration: 200 },
+   { 'title': 'Track 2003', 'artist': 'DJ Bushwacka', 'url': '/audio/Bushwackas.mp3', 'duration': 200}, {"id": "107FM_18_BACK_TO_THE_UNIVERSE_2000", 'title': '107FM_18_BACK_TO_THE_UNIVERSE_2000', 'artist': 'yy kkl', 'url': '/audio/107FM_18_BACK_TO_THE_UNIVERSE_2000.mp3',  'duration': 200},
+{"id": "Dep_Mode_vinil_A_41", 'title': '4 Tracks: Depecne Mode', 'artist': 'Depecne Mode', 'url': '/audio/Dep_Mode_vinil_A_41.mp3', 'duration': 1200},
+]
+ rw.value = [{"id": "Dep_Mode_vinil_A_41", 'title': '4 Tracks: Depecne Mode', 'artist': 'Depecne Mode', 'url': '/audio/Dep_Mode_vinil_A_41.mp3', 'duration': 1200},
+   {"id": "Remix_the_hall_of_the_mountain_king_E_G", "url": "/audio/Remix_the_hall_of_the_mountain_king_E_G.mp3", "title": "Remix 'the Hall of the Mountain King' E. G.", "artist": "DJ MurrMyau", "album": "Black & W   creator DJ MurrMyau", "year": "2025", "duration": 259},
 ]
 // Общее состояние для всех плееров
 const activeTrack1 = ref(null)
@@ -335,11 +338,11 @@ function connectAudioToVisualizer(track) {
     analyser.value.getByteFrequencyData(dataArray.value)
     //********************************* */
            const bass = dataArray.value[0] + dataArray.value[1] + dataArray.value[2] / 3;
-            const blink = Math.min(bass / 380, 1);
+            const blink = Math.min(bass / 396, 1);
  
         if (limg.value != null) limg.value.style.opacity = 1 - blink * 0.85
 
-         if (eye.value != null) eye.value = 1 - blink * 0.95
+         if (eyey.value != null) eyey.value = 1 - blink * 0.95
 
             // Динамика логотипа: изменение цвета
             const logoHue = (bass / 255) * 360;

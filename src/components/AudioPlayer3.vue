@@ -164,47 +164,37 @@ function togglePlayPause() {console.log(props.isPlayingGl)
 }
 
 function playNext() { 
-  //  emit('play-state',
-  //    true,
-  //    idplaylist.value
-  //   )
-
-   let nextIndex
-  if ((props.playlist.length <= 1) || props.stop3) {
-    if ((tracks.value !== null) || props.stop3) { 
-          //const currentIndex = tracks.value.findIndex(t => t.url === currentTrack.value.url)
-      nextIndex = Math.floor(Math.random() * tracks.value.length)
+  let nextIndex
+    if (tracks.value !== null) { 
+       const currentIndex = tracks.value.findIndex(t => t.url === currentTrack.value.url)
+     // nextIndex = Math.floor(Math.random() * tracks.value.length)
+      nextIndex = (currentIndex + 1) % tracks.value.length
       currentTrack.value = tracks.value[nextIndex]
      const audio = audioRef.value
+    console.log(tracks.value)
+
   audio.src = currentTrack.value.url
   audio.play().catch(console.error)
   isPlaying.value = true
        emit('track-change', audioRef, currentTrack.value, idplaylist.value)
         return
-}
     }
-if (props.stop3) return
    if (currentTrack.value) {
-   // const currentIndex = props.playlist.findIndex(t => t.url === currentTrack.value.url)
+    const currentIndex = props.playlist.findIndex(t => t.url === currentTrack.value.url)
     // Можно сделать случайный:
-    nextIndex = Math.floor(Math.random() * props.playlist.length)
+    //nextIndex = Math.floor(Math.random() * props.playlist.length)
     // Или следующий по порядку:
-    // nextIndex = (currentIndex + 1) % props.playlist.length
-    
+    nextIndex = (currentIndex + 1) % props.playlist.length
+    console.log(currentTrack.value)
   } else {
     nextIndex = 0
   }
-
   currentTrack.value = props.playlist[nextIndex]
   const audio = audioRef.value
   audio.src = currentTrack.value.url
   audio.play().catch(console.error)
   isPlaying.value = true
        emit('track-change', audioRef, currentTrack.value, idplaylist.value)
-     emit('stop-state',
-     true,
-     idplaylist.value
-    )
 }  
 
 

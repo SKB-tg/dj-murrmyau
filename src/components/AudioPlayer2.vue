@@ -88,7 +88,7 @@ onMounted(async() => {
   })
   audio.addEventListener('play', () => { console.log(currentTrack.value)
     isPlaying.value = true
-       emit('track-change', audioRef,  currentTrack.value, idplaylist.value)
+     //  emit('track-change', audioRef,  currentTrack.value, idplaylist.value)
      emit('play-state',
      true,
     
@@ -158,6 +158,7 @@ function playNext() {
           //const currentIndex = tracks.value.findIndex(t => t.url === currentTrack.value.url)
       nextIndex = Math.floor(Math.random() * tracks.value.length)
       currentTrack.value = tracks.value[nextIndex]
+    console.log(currentTrack.value)
 
     const audio = audioRef.value 
   audio.src = currentTrack.value.url
@@ -176,9 +177,9 @@ function playNext() {
    if (currentTrack.value) {
     const currentIndex = props.playlist.findIndex(t => t.url === currentTrack.value.url)
     // Можно сделать случайный:
-    nextIndex = Math.floor(Math.random() * props.playlist.length)
+    //nextIndex = Math.floor(Math.random() * props.playlist.length)
     // Или следующий по порядку:
-    // nextIndex = (currentIndex + 1) % props.playlist.length
+    nextIndex = (currentIndex + 1) % props.playlist.length
     console.log(currentTrack.value)
   } else {
     nextIndex = 0
