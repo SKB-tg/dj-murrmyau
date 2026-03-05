@@ -9,11 +9,12 @@
     </div> -->
     <!-- Двойная кнопка: Play/Pause + Next -->
     <div class="controls-player" >
-     <button @click="playBack" class="btn btn-secondary-left">⏭️</button>
+     <button @click="playBack" class="btn btn-secondary-left">⏭</button>
       <button @click="togglePlayPause" class="btn btn-primary">
-        {{ (isPlaying) ? 'tematics long track  ⏸️' : 'tematics long track ▶' }}
+      <span v-if="!isPlaying">tematic ▶ longtrack</span>
+        <span v-if="isPlaying">tematic <img v-if="isPlaying" src="../pause.svg" width="16" height="17"  style="top: 3px;margin: 0;position: relative; color: aliceblue;"/> longtrack</span>
       </button>
-  <button @click="playNext" class="btn btn-secondary-right">⏭️</button>
+  <button @click="playNext" class="btn btn-secondary-right">⏭</button>
     </div>
 
     <!-- Прогресс-бар (опционально) -->
@@ -88,7 +89,7 @@ onMounted(async() => {
   })
   audio.addEventListener('play', () => { console.log(currentTrack.value)
     isPlaying.value = true
-     //  emit('track-change', audioRef,  currentTrack.value, idplaylist.value)
+     emit('track-change', audioRef,  currentTrack.value, idplaylist.value)
      emit('play-state',
      true,
     

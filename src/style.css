@@ -374,7 +374,7 @@ h1 {
                     display: flex;
                     flex-direction: column;
                     }
-                            
+            .boost {display: none;}                
             /* button {
                 padding: 8px 15px;
                 margin: 5px;

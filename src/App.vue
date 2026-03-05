@@ -93,13 +93,14 @@ const albumTrack = { title: 'Мой трек', url: 'album.mp3' };
 const thematicTrack = { title: 'Известный', url: 'thematic.mp3' };
     if (canvas.value != null) {ctx.value = canvas.value.getContext('2d')}
 //****************************************** */
-Electron.value = [{ 'title': 'Blue in Green', 'artist': 'Miles Davis', 'url': '/audio/Limbo.mp3', duration: 200 },
+Electron.value = [
    { 'title': 'Track 2003', 'artist': 'DJ Bushwacka', 'url': '/audio/Bushwackas.mp3', 'duration': 200}, {"id": "107FM_18_BACK_TO_THE_UNIVERSE_2000", 'title': '107FM_18_BACK_TO_THE_UNIVERSE_2000', 'artist': 'yy kkl', 'url': '/audio/107FM_18_BACK_TO_THE_UNIVERSE_2000.mp3',  'duration': 200},
 {"id": "Dep_Mode_vinil_A_41", 'title': '4 Tracks: Depecne Mode', 'artist': 'Depecne Mode', 'url': '/audio/Dep_Mode_vinil_A_41.mp3', 'duration': 1200},
 ]
  rw.value = [{"id": "Dep_Mode_vinil_A_41", 'title': '4 Tracks: Depecne Mode', 'artist': 'Depecne Mode', 'url': '/audio/Dep_Mode_vinil_A_41.mp3', 'duration': 1200},
    {"id": "Remix_the_hall_of_the_mountain_king_E_G", "url": "/audio/Remix_the_hall_of_the_mountain_king_E_G.mp3", "title": "Remix 'the Hall of the Mountain King' E. G.", "artist": "DJ MurrMyau", "album": "Black & W   creator DJ MurrMyau", "year": "2025", "duration": 259},
-]
+    {"id": "Adrenalin", "url": "/audio/Adrenalin.mp3", "title": "Adrenalin", "artist": "DJ MurrMyau", "album": "Black & W   creator DJ MurrMyau",  "year": "2025", "duration": 175},
+{"id": "L_D_mix", 'title': 'Remix "Beliver"', 'artist': 'DJ MurrMyau', 'url': '/audio/I_D_mix.mp3', 'duration': 300 }]
 // Общее состояние для всех плееров
 const activeTrack1 = ref(null)
 const globalProgress = ref(0)
@@ -116,7 +117,7 @@ function onTrackChange(audioRef, track, idplaylist) {
     console.log(audioRef.value)
 audioGlobRef.value = audioRef.value}
     if (track != null) { 
-  marqueText = `Трек: ${track.title || 'Неизвестно'} | Артист: ${track.artist || 'Неизвестно'} | 'Альбом:', ${track.album || 'Неизвестно' || 'Дефолт'}| Файл: ${ track.id}.mp3  | Длительность: ${audioRef.value.duration || track.duration}сек`;
+  marqueText = `Трек: ${track.title || 'Неизвестно'} | Артист: ${track.artist || 'Неизвестно'} | 'Альбом:', ${track.album || 'Неизвестно' || 'Дефолт'}| Файл: ${ track.id}.mp3  | Длительность: ${Math.round(audioRef.value.duration/60)+'min'+Math.round(audioRef.value.duration%60) || track.duration}сек`;
 console.log(audioGlobRef.value)
 }
 if (!audioContext.value) {

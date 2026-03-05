@@ -14,11 +14,12 @@
   </label> -->
     <!-- Двойная кнопка: Play/Pause + Next -->
     <div class="controls-player">
-      <button @click="playBack" class="btn btn-secondary-left">⏭️</button>
+      <button @click="playBack" class="btn btn-secondary-left">⏭</button>
       <button @click="togglePlayPause" class="btn btn-primary">
-        <span>{{ isPlaying ? 'my recomendation  ⏸️' : 'my recomendation ▶' }}</span>
+      <span v-if="!isPlaying">Recomendation ▶</span>
+        <span v-if="isPlaying">Recomendation <img v-if="isPlaying" src="../pause.svg" width="16" height="17"  style="top: 3px;margin: 0;position: relative; color: aliceblue;"/></span>
       </button>
-      <button @click="playNext" class="btn btn-secondary-right">⏭️</button>
+      <button @click="playNext" class="btn btn-secondary-right">⏭</button>
     </div>
 
     <!-- Прогресс-бар (опционально) -->
@@ -176,7 +177,7 @@ function playNext() {
   audio.src = currentTrack.value.url
   audio.play().catch(console.error)
   isPlaying.value = true
-       emit('track-change', audioRef, currentTrack.value, idplaylist.value)
+      // emit('track-change', audioRef, currentTrack.value, idplaylist.value)
         return
     }
    if (currentTrack.value) {
@@ -194,7 +195,7 @@ function playNext() {
   audio.src = currentTrack.value.url
   audio.play().catch(console.error)
   isPlaying.value = true
-       emit('track-change', audioRef, currentTrack.value, idplaylist.value)
+      // emit('track-change', audioRef, currentTrack.value, idplaylist.value)
 }  
 
 

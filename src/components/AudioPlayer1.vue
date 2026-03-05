@@ -10,11 +10,12 @@
     <!-- Двойная кнопка: Play/Pause + Next -->
     <div class="controls-player" >
 
-        <button @click="playBack" class="btn btn-secondary-left">⏭️</button>
+        <button @click="playBack" class="btn btn-secondary-left">⏭</button>
        <button @click="togglePlayPause" class="btn btn-primary">
-        {{ (isPlaying) ? 'my album ⏸️' : 'my album ▶' }}
-      </button>
-      <button @click="playNext" class="btn btn-secondary-right">⏭️</button>
+        <span v-if="!isPlaying">my Album    ▶</span>
+        <span v-if="isPlaying">my Album <img v-if="isPlaying" src="../pause.svg" width="16" height="17"  style="top: 3px;margin: 0;position: relative; color: aliceblue;"/> my Album</span>
+        </button>
+      <button @click="playNext" class="btn btn-secondary-right">⏭</button>
     </div>
 
     <!-- Прогресс-бар (опционально) -->
