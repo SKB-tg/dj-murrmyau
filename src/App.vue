@@ -117,7 +117,7 @@ function onTrackChange(audioRef, track, idplaylist) {
     console.log(audioRef.value)
 audioGlobRef.value = audioRef.value}
     if (track != null) { 
-  marqueText = `Трек: ${track.title || 'Неизвестно'} | Артист: ${track.artist || 'Неизвестно'} | 'Альбом:', ${track.album || 'Неизвестно' || 'Дефолт'}| Файл: ${ track.id}.mp3  | Длительность: ${Math.round(audioRef.value.duration/60)+'min'+Math.round(audioRef.value.duration%60) || track.duration}сек`;
+  marqueText = `Трек: ${track.title || ' --- '} | Артист: ${track.artist || ' --- '} | 'Альбом: ', ${activeTrack1.value.album || ' --- ' || 'Дефолт'}| Файл: ${ activeTrack1.value.id}.mp3  | Длительность: ${Math.round(activeTrack1.value.duration/60)+' min '+Math.round(activeTrack1.value.duration%60) || track.duration} сек`;
 console.log(audioGlobRef.value)
 }
 if (!audioContext.value) {
@@ -537,5 +537,4 @@ function connectAudioToVisualizer(track) {
   font-weight: 300;  /* font-medium */
   color: #278268;    /* text-gray-900 */
 } 
-
 </style>
