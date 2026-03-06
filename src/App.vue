@@ -93,7 +93,7 @@ const albumTrack = { title: 'Мой трек', url: 'album.mp3' };
 const thematicTrack = { title: 'Известный', url: 'thematic.mp3' };
     if (canvas.value != null) {ctx.value = canvas.value.getContext('2d')}
 //****************************************** */
-Electron.value = [
+Electron.value = [{"id": "Big_Time_Piter_Gabriel_1986", 'title': 'Big Time Piter Gabriel 1986', 'artist': 'Piter Gabriel', 'url': '/audio/Big_Time_Piter_Gabriel_1986.mp3', 'duration': 590},
    { 'title': 'Track 2003', 'artist': 'DJ Bushwacka', 'url': '/audio/Bushwackas.mp3', 'duration': 200}, {"id": "107FM_18_BACK_TO_THE_UNIVERSE_2000", 'title': '107FM_18_BACK_TO_THE_UNIVERSE_2000', 'artist': 'yy kkl', 'url': '/audio/107FM_18_BACK_TO_THE_UNIVERSE_2000.mp3',  'duration': 200},
 {"id": "Dep_Mode_vinil_A_41", 'title': '4 Tracks: Depecne Mode', 'artist': 'Depecne Mode', 'url': '/audio/Dep_Mode_vinil_A_41.mp3', 'duration': 1200},
 ]
@@ -424,7 +424,7 @@ function connectAudioToVisualizer(track) {
 			    max-height: 24px;
             width: 100%;
             max-width: 600px;
-            margin: 15px auto;
+            margin: 35px auto;
             overflow: hidden;
             white-space: nowrap;
             box-sizing: border-box;
