@@ -374,6 +374,10 @@ h1 {
                     display: flex;
                     flex-direction: column;
                     }
+			        .info {
+            margin: 35px 0;
+            color: #555;
+        }
             .boost {display: none;}                
             /* button {
                 padding: 8px 15px;
