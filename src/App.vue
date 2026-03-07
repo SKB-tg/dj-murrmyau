@@ -3,7 +3,7 @@
   <div >
                         <div class="logo-wrapper">
                 <div ref="limg" style="left:0" class="limg"></div>
-                <img  ref="logoImg" src="/DJ_MurrMyau_Album.jpg" class="logo-img" alt="DJ_MurrMyau.jpg">
+                <img  ref="logoImg" src="/DJ_MurrMyau_Album.jpg" class="logo-img" alt="DJ_MurrMyau">
                 <div ref="limg" style="right:0" class="limg"></div>
               <div class="cat-eyes">
                     <div class="eye left" :style="{ opacity: eyey }"></div>
@@ -66,7 +66,6 @@ const Electron = ref([{}])
 const rw = ref([])
 
 //**************************************************************** */
-
 let audioContext = ref(null)
 let analyser = ref(null)
 let source = ref(null)
@@ -93,14 +92,16 @@ const albumTrack = { title: 'Мой трек', url: 'album.mp3' };
 const thematicTrack = { title: 'Известный', url: 'thematic.mp3' };
     if (canvas.value != null) {ctx.value = canvas.value.getContext('2d')}
 //****************************************** */
-Electron.value = [{"id": "Big_Time_Piter_Gabriel_1986", 'title': 'Big Time Piter Gabriel 1986', 'artist': 'Piter Gabriel', 'url': '/audio/Big_Time_Piter_Gabriel_1986.mp3', 'duration': 590},
-   { 'title': 'Track 2003', 'artist': 'DJ Bushwacka', 'url': '/audio/Bushwackas.mp3', 'duration': 200}, {"id": "107FM_18_BACK_TO_THE_UNIVERSE_2000", 'title': '107FM_18_BACK_TO_THE_UNIVERSE_2000', 'artist': 'yy kkl', 'url': '/audio/107FM_18_BACK_TO_THE_UNIVERSE_2000.mp3',  'duration': 200},
-{"id": "Dep_Mode_vinil_A_41", 'title': '4 Tracks: Depecne Mode', 'artist': 'Depecne Mode', 'url': '/audio/Dep_Mode_vinil_A_41.mp3', 'duration': 1200},
+Electron.value = [{"id": "Big_Time_Piter_Gabriel_1986", 'title': 'Big Time Piter Gabriel 1986', 'artist': 'Piter Gabriel', 'url': '/audio/Big_Time_Piter_Gabriel_1986.mp3', "year": "1986", 'duration': 590},
+    {"id": "Zodiak_album_1981_A1_3tr", 'title': 'Zodiak album 1981 A1 3 track', 'artist': 'Zodiak', 'url': '/audio/Zodiak_album_1981_A1_3tr.mp3', "year": "1981", 'duration': 1200},
+   { 'title': 'Track 2003', 'artist': 'DJ Bushwacka', 'url': '/audio/Bushwackas.mp3', "year": "2003", 'duration': 200}, {"id": "107FM_18_BACK_TO_THE_UNIVERSE_2000", 'title': '107FM_18_BACK_TO_THE_UNIVERSE_2000', "year": "2000", 'artist': 'yy kkl', 'url': '/audio/107FM_18_BACK_TO_THE_UNIVERSE_2000.mp3',  'duration': 200},
+    {"id": "Zodiak_album_1981_A2_4tr", 'title': 'Zodiak album 1981 A2 4 track', 'artist': 'Zodiak', 'url': '/audio/Zodiak_album_1981_A2_4tr.mp3', "year": "1981",'duration': 1180},
+{"id": "Dep_Mode_vinil_A_41", 'title': '4 Tracks: Depecne Mode', 'artist': 'Depecne Mode', 'url': '/audio/Dep_Mode_vinil_A_41.mp3', "year": "1986", 'duration': 1200},
 ]
- rw.value = [{"id": "Dep_Mode_vinil_A_41", 'title': '4 Tracks: Depecne Mode', 'artist': 'Depecne Mode', 'url': '/audio/Dep_Mode_vinil_A_41.mp3', 'duration': 1200},
-   {"id": "Remix_the_hall_of_the_mountain_king_E_G", "url": "/audio/Remix_the_hall_of_the_mountain_king_E_G.mp3", "title": "Remix 'the Hall of the Mountain King' E. G.", "artist": "DJ MurrMyau", "album": "Black & W   creator DJ MurrMyau", "year": "2025", "duration": 259},
+ rw.value = [{"id": "Dep_Mode_vinil_A_41", 'title': '4 Tracks: Depecne Mode', 'artist': 'Depecne Mode', 'url': '/audio/Dep_Mode_vinil_A_41.mp3', "year": "1986", 'duration': 1200},
+   {"id": "Remix_the_hall_of_the_mountain_king_E_G", "url": "/audio/Remix_the_hall_of_the_mountain_king_E_G.mp3", "title": "Remix 'the Hall of the Mountain King' E. G.", "artist": "DJ MurrMyau", "album": "Black & W   creator DJ MurrMyau", "year": "2025", "duration": 509},
     {"id": "Adrenalin", "url": "/audio/Adrenalin.mp3", "title": "Adrenalin", "artist": "DJ MurrMyau", "album": "Black & W   creator DJ MurrMyau",  "year": "2025", "duration": 175},
-{"id": "L_D_mix", 'title': 'Remix "Beliver"', 'artist': 'DJ MurrMyau', "album": "Black & W   creator DJ MurrMyau", 'url': '/audio/I_D_mix.mp3', 'duration': 300 }]
+{"id": "L_D_mix", 'title': 'Remix "Beliver"', 'artist': 'DJ MurrMyau', "year": "2025", "album": "Black & W   creator DJ MurrMyau", 'url': '/audio/I_D_mix.mp3', 'duration': 300 }]
 // Общее состояние для всех плееров
 const activeTrack1 = ref(null)
 const globalProgress = ref(0)
@@ -117,7 +118,7 @@ function onTrackChange(audioRef, track, idplaylist) {
     console.log(audioRef.value)
 audioGlobRef.value = audioRef.value}
     if (track != null) { 
-  marqueText = `Трек: ${track.title || ' --- '} | Артист: ${track.artist || ' --- '} | 'Альбом: ', ${activeTrack1.value.album || ' --- ' || 'Дефолт'}| Файл: ${ activeTrack1.value.id}.mp3  | Длительность: ${Math.round(activeTrack1.value.duration/60)+' min '+Math.round(activeTrack1.value.duration%60) || track.duration} сек`;
+  marqueText = `Трек: ${track.title || ' --- '} | Артист: ${track.artist || ' --- '} | 'Альбом: '${activeTrack1.value.album || ' --- '} | Year: ${ activeTrack1.value.year || ' -- '}  | Длительность: ${Math.round(activeTrack1.value.duration/60)+' min '+Math.round(activeTrack1.value.duration%60) || track.duration} сек`;
 console.log(audioGlobRef.value)
 }
 if (!audioContext.value) {

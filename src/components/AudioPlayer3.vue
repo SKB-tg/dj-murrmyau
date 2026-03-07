@@ -14,12 +14,12 @@
   </label> -->
     <!-- Двойная кнопка: Play/Pause + Next -->
     <div class="controls-player">
-      <button @click="playBack" class="btn btn-secondary-left">⏭</button>
+      <button @click="playNext(-1)" class="btn btn-secondary-left">⏭</button>
       <button @click="togglePlayPause" class="btn btn-primary">
       <span v-if="!isPlaying">Recomendation ▶</span>
         <span v-if="isPlaying">Recomendation <img v-if="isPlaying" src="../pause.svg" width="16" height="17"  style="top: 3px;margin: 0;position: relative; color: aliceblue;"/></span>
       </button>
-      <button @click="playNext" class="btn btn-secondary-right">⏭</button>
+      <button @click="playNext(1)" class="btn btn-secondary-right">⏭</button>
     </div>
 
     <!-- Прогресс-бар (опционально) -->
@@ -164,20 +164,20 @@ function togglePlayPause() {console.log(props.isPlayingGl)
   }
 }
 
-function playNext() { 
+function playNext(playIndex) { 
   let nextIndex
     if (tracks.value !== null) { 
        const currentIndex = tracks.value.findIndex(t => t.url === currentTrack.value.url)
      // nextIndex = Math.floor(Math.random() * tracks.value.length)
-      nextIndex = (currentIndex + 1) % tracks.value.length
-      currentTrack.value = tracks.value[nextIndex]
+      nextIndex = (currentIndex + playIndex) % tracks.value.length
+      currentTrack.value = tracks.value[nextIndex<=0 ? 0 : nextIndex]
      const audio = audioRef.value
     console.log(tracks.value)
 
   audio.src = currentTrack.value.url
   audio.play().catch(console.error)
   isPlaying.value = true
-      // emit('track-change', audioRef, currentTrack.value, idplaylist.value)
+       emit('track-change', audioRef, currentTrack.value, idplaylist.value)
         return
     }
    if (currentTrack.value) {
@@ -185,7 +185,8 @@ function playNext() {
     // Можно сделать случайный:
     //nextIndex = Math.floor(Math.random() * props.playlist.length)
     // Или следующий по порядку:
-    nextIndex = (currentIndex + 1) % props.playlist.length
+    nextIndex = (currentIndex + playIndex) % props.playlist.length
+    nextIndex = nextIndex<=0 ? 0 : nextIndex
     console.log(currentTrack.value)
   } else {
     nextIndex = 0
@@ -195,9 +196,8 @@ function playNext() {
   audio.src = currentTrack.value.url
   audio.play().catch(console.error)
   isPlaying.value = true
-      // emit('track-change', audioRef, currentTrack.value, idplaylist.value)
-}  
-
+       emit('track-change', audioRef, currentTrack.value, idplaylist.value)
+}
 
 // Клик по прогресс-бару
 function onProgressClick(event) {
@@ -234,13 +234,14 @@ display: flex;
   gap: 1px;
 }
 .btn {
-  padding: 7px 8px 9px 10px;
+  padding: 8px 12px 12px 8px;
   border: none;
   cursor: pointer;
   font-size: 16px;
 }
 .btn-secondary-left { background: #278268; color: white;
-  border-radius:  16px 2px 2px 16px;
+   border-radius:  2px 16px 16px 2px;
+  transform: rotate(180deg);
 }
 .btn-primary { background: #278268; color: white;
   border-radius:  2px 2px 2px 2px;

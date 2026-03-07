@@ -321,12 +321,21 @@ h1 {
                 width: 50vw; 
                 max-height: 200px;
                 height: 50vw;
+                opacity: 0;
+                transition: opacity 0.9s ease-in-out;
             }
+
             .logo-img {                
                 max-width: 216px;
                 /* width: 50vw;  */
                 max-height: 216px;
                 /* height: 50vw; */
+                opacity: 0;
+                transition: opacity 0.5s ease-in-out;
+            }
+            .limg.loaded,
+            .logo-img.loaded {
+                opacity: 1;
             }
             .visualizer {
                 height: 56.25vw; /* Для 16:9, но в портрете ~9:16 эффект */
@@ -374,10 +383,6 @@ h1 {
                     display: flex;
                     flex-direction: column;
                     }
-			        .info {
-            margin: 35px 0;
-            color: #555;
-        }
             .boost {display: none;}                
             /* button {
                 padding: 8px 15px;
@@ -398,6 +403,7 @@ h1 {
                 padding: 7px 8px 9px 10px;
                 /* border: none; */
                 cursor: pointer;
+                margin-top: 25px;
                 font-size: 10px;
                 color: #0ff;
                 }
