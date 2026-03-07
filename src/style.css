@@ -321,7 +321,7 @@ h1 {
                 width: 50vw; 
                 max-height: 200px;
                 height: 50vw;
-                opacity: 0;
+                opacity: 1;
                 transition: opacity 0.9s ease-in-out;
             }
 
@@ -330,12 +330,12 @@ h1 {
                 /* width: 50vw;  */
                 max-height: 216px;
                 /* height: 50vw; */
-                opacity: 0;
+                opacity: 1;
                 transition: opacity 0.5s ease-in-out;
             }
-            .limg.loaded,
-            .logo-img.loaded {
-                opacity: 1;
+            .limg.loading,
+            .logo-img.loading {
+                opacity: 0;
             }
             .visualizer {
                 height: 56.25vw; /* Для 16:9, но в портрете ~9:16 эффект */
