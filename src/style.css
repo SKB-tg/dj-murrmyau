@@ -204,6 +204,7 @@ h1 {
             margin: 1px;
             border-radius: 30px;
             cursor: pointer;
+			max-height: 41px;
             font-weight: bold;
             transition: all 0.2s ease;
             /* box-shadow: 0 5px 10px rgba(0,255,255,0.5); */
@@ -404,6 +405,7 @@ h1 {
                 /* border: none; */
                 cursor: pointer;
                 margin-top: 18px;
+				max-height: 41px;
                 font-size: 10px;
                 color: #0ff;
                 }
