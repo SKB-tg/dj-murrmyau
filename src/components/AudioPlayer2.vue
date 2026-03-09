@@ -258,7 +258,7 @@ function onProgressClick(event) {
     flex-wrap: wrap;
       padding: 30px;
   border-radius: 8px;
-  margin-bottom: 16px;
+  margin-top: 16px;
   max-width: 300px;
   
 }

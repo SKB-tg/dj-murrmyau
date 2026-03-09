@@ -12,8 +12,13 @@
             </div>
         <img @click="onlogoBoost" src="/favicon-16x15.png" style="position:absolute;right:-20px;top:20px" class="btn boost">
                 
-    <!-- <h2>Плейлист 1: Джаз</h2> -->
-  
+    <!-- <h2>Плейлист 1: POP UP </h2> -->
+    <!-- <button @click="showModal = true">Показать сообщение</button> -->
+
+  <FloatingModal v-model="showModal">
+ 
+  </FloatingModal>
+
   <!-- Общий прогресс-бар -->
   <div class="progress-container" v-if="activeTrack1" @click="onProgressClickG">
       <div class="progress-glob" v-if="activeTrack1" :style="{ width: globalProgress + '%' }"></div>
@@ -51,7 +56,7 @@
             <div ref="particles" class="particles" id="particles"></div>
 
         </div>
-        <div class="info">DJ MurrMyau — визуализатор музыки • Новый Год 2025</div>
+        <div class="info">DJ MurrMyau — визуализатор музыки • Новый Год 2026</div>
     </div>
 </template>
 <script setup>
@@ -59,6 +64,9 @@ import { ref, onMounted } from 'vue'
 import AudioPlayer1 from './components/AudioPlayer1.vue'
 import AudioPlayer2 from './components/AudioPlayer2.vue'
 import AudioPlayer3 from './components/AudioPlayer3.vue'
+import FloatingModal from './components/FloatingModal.vue'
+
+const showModal = ref(true)
 
 // Эти данные могут приходить из tracks.json или API
 const Spaceelectro = ref([])
@@ -100,7 +108,7 @@ Electron.value = [{"id": "Big_Time_Piter_Gabriel_1986", 'title': 'Big Time Piter
 ]
  rw.value = [{"id": "Dep_Mode_vinil_A_41", 'title': '4 Tracks: Depecne Mode', 'artist': 'Depecne Mode', 'url': '/audio/Dep_Mode_vinil_A_41.mp3', "year": "1986", 'duration': 1200},
    {"id": "Remix_the_hall_of_the_mountain_king_E_G", "url": "/audio/Remix_the_hall_of_the_mountain_king_E_G.mp3", "title": "Remix 'the Hall of the Mountain King' E. G.", "artist": "DJ MurrMyau", "album": "Black & W   creator DJ MurrMyau", "year": "2025", "duration": 509},
-    {"id": "Adrenalin", "url": "https://raw.githubusercontent.com/SKB-tg/50projects50days/blob/master/Kolybel.mp3", "title": "Adrenalin", "artist": "DJ MurrMyau", "album": "Black & W   creator DJ MurrMyau",  "year": "2025", "duration": 175},
+    {"id": "Adrenalin", "url": "/audio/Adrenalin.mp3", "title": "Adrenalin", "artist": "DJ MurrMyau", "album": "Black & W   creator DJ MurrMyau",  "year": "2025", "duration": 175},
 {"id": "L_D_mix", 'title': 'Remix "Beliver"', 'artist': 'DJ MurrMyau', "year": "2025", "album": "Black & W   creator DJ MurrMyau", 'url': '/audio/I_D_mix.mp3', 'duration': 300 }]
 // Общее состояние для всех плееров
 const activeTrack1 = ref(null)
@@ -292,7 +300,7 @@ function connectAudioToVisualizer(track) {
   // === ЧАСТИЦЫ ===
     function createParticles() {
         particles.innerHTML = '';
-        const count = Math.min(window.innerWidth / 20, 50);
+        const count = Math.min(window.innerWidth / 20, 30);
         for (let i = 0; i < count; i++) {
             const particle = document.createElement('div');
             particle.classList.add('particle');
@@ -354,6 +362,11 @@ function connectAudioToVisualizer(track) {
 </script>
 
 <style scoped>
+            @media (max-width: 600px) {
+ .label.toggle-switch {position: absolute;
+  left: 30%;
+  }           
+        }
          .track-info {display: block;
             margin: 15px 0;
             font-size: 18px;
@@ -468,7 +481,7 @@ function connectAudioToVisualizer(track) {
 .toggle-switch {
   position: absolute;
   left: 38%;
-  top: 0px;
+  top: 10px;
   display: inline-flex;
   align-items: center;
   cursor: pointer;

@@ -325,7 +325,7 @@ h1 {
                 transition: opacity 0.9s ease-in-out;
             }
 
-            .logo-img {                
+            img {                
                 max-width: 216px;
                 /* width: 50vw;  */
                 max-height: 216px;
@@ -334,7 +334,7 @@ h1 {
                 transition: opacity 0.5s ease-in-out;
             }
             .limg.loading,
-            .logo-img.loading {
+            img.loading {
                 opacity: 0;
             }
             .visualizer {
@@ -400,10 +400,10 @@ h1 {
             button:focus {outline: none;}
 
             .btn {
-                padding: 7px 8px 9px 10px;
+                padding: 9px 12px 9px 9px;
                 /* border: none; */
                 cursor: pointer;
-                margin-top: 25px;
+                margin-top: 18px;
                 font-size: 10px;
                 color: #0ff;
                 }
@@ -417,5 +417,7 @@ h1 {
             .track-info {
                 font-size: 16px;
             }
+             .toggle-switch {
+        left: 30%;
         }
- 
+    }
