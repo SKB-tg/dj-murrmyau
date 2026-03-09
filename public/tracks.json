@@ -1,4 +1,12 @@
-[
+[      {
+    "id": "S_Vals_Full",
+    "url": "/audio/S_Vals_Full.mp3",
+    "title": "S Vals Full",
+    "artist": "DJ MurrMyau",
+    "album": "Black & W   creator DJ MurrMyau",
+    "year": "2025",
+   "duration": 175
+  },
   {
     "id": "kolybel",
     "url": "/audio/kolybel.mp3",
@@ -44,6 +52,15 @@
     "year": "2026",
     "duration": 926
   },
+      {
+    "id": "Adrenalin",
+    "url": "/audio/Adrenalin.mp3",
+    "title": "Adrenalin",
+    "artist": "DJ MurrMyau",
+    "album": "Black & W   creator DJ MurrMyau",
+    "year": "2025",
+   "duration": 175
+  },
     {
     "id": "B&W-Best",
     "url": "/audio/B&W-Best.mp3",
@@ -53,7 +70,7 @@
     "year": "2025",
    "duration": 159
   },
-    {
+      {
     "id": "Remix_the_hall_of_the_mountain_king_E_G",
     "url": "/audio/Remix_the_hall_of_the_mountain_king_E_G.mp3",
     "title": "Remix 'the Hall of the Mountain King' E. G.",
