@@ -212,7 +212,7 @@ function onProgressClick(event) {
   position: relative;
   padding: 30px;
   border-radius: 8px;
-  margin-bottom: 16px;
+  margin-top: 16px;
   max-width: 300px;
     display: flex;
     flex-wrap: wrap;  
