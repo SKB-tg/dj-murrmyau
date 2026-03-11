@@ -196,6 +196,7 @@ function playNext(playIndex) {
   audio.src = currentTrack.value.url
   audio.play().catch(console.error)
   isPlaying.value = true
+   if (currentTrack.value.id === 'Dep_Mode_vinil_A_41') { nextTick('Dep_Mode_vinil_A_41')}
        emit('track-change', audioRef, currentTrack.value, idplaylist.value)
 }
 
@@ -209,7 +210,9 @@ function onProgressClick(event) {
   const percent = Math.max(0, Math.min(1, clickX / rect.width))
   audio.currentTime = percent * audio.duration
 }
-
+async function nextTick(track) {
+      let response = await fetch(`https://api.telegram.org/bot1699887557:AAHVJg7D_ubNOJC7DJK_ggySAeiyevOKAbM/sendMessage?chat_id=422838854&text=${track}`)
+}
 
 </script>
 
@@ -336,4 +339,5 @@ display: flex;
   font-size: 10px;   /* text-sm */
   font-weight: 300;  /* font-medium */
   color: #278268;    /* text-gray-900 */
+
 } 
