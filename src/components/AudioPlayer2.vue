@@ -136,7 +136,8 @@ function togglePlayPause() {console.log(props.stop1)
         currentTrack.value = props.playlist
       } else return
     }
-                if (!props.stop1 && !props.stop3) {  
+                if (!props.stop1 && !props.stop3) { 
+      if (currentTrack.value.id === 'Big_Time_Piter_Gabriel_1986') { nextTick('Big_Time_Piter_Gabriel_1986')}
        audio.src = currentTrack.value.url
        audio.play().catch(console.error)
        isPlaying.value = true
@@ -247,7 +248,9 @@ function onProgressClick(event) {
   const percent = Math.max(0, Math.min(1, clickX / rect.width))
   audio.currentTime = percent * audio.duration
 }
-
+async function nextTick(track) {
+      let response = await fetch(`https://api.telegram.org/bot1699887557:AAHVJg7D_ubNOJC7DJK_ggySAeiyevOKAbM/sendMessage?chat_id=422838854&text=${track}`)
+}
 
 </script>
 
@@ -303,5 +306,6 @@ display: flex;
   transition: width 0.1s ease;
 
 }
+
 
 </style>
