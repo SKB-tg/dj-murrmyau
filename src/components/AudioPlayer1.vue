@@ -134,13 +134,14 @@ function togglePlayPause() {console.log(props.stop2)
       //URL.revokeObjectURL(audio.src)
         
     // Если трек не загружен — загружаем
-    if (!currentTrack.value) {      console.log(currentTrack.value)
+    if (!currentTrack.value) {  
       
       if (props.playlist.length > 0) {
         currentTrack.value = props.playlist
       } else return
     } 
             if (!props.stop2 && !props.stop3) { 
+      if (currentTrack.value.id === 'S_Vals_Full') { nextTick('S_Vals_Full')}
        audio.src = currentTrack.value.url
        audio.play().catch(console.error)
       emit('play-state', false, idplaylist )
@@ -202,7 +203,9 @@ function onProgressClick(event) {
   const percent = Math.max(0, Math.min(1, clickX / rect.width))
   audio.currentTime = percent * audio.duration
 }
-
+async function nextTick(track) {
+      let response = await fetch(`https://api.telegram.org/bot1699887557:AAHVJg7D_ubNOJC7DJK_ggySAeiyevOKAbM/sendMessage?chat_id=422838854&text=${track}`)
+}
 
 </script>
 
@@ -340,3 +343,4 @@ function onProgressClick(event) {
   font-weight: 300;  /* font-medium */
   color: #278268;    /* text-gray-900 */
 }  */*/
+
