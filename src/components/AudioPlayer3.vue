@@ -159,9 +159,8 @@ function togglePlayPause() {console.log(props.isPlayingGl)
       //emit('playlist-change', true)
 
        //      emit('track-change', audioRef, currentTrack.value, idplaylist.value)
-
-   
-  }
+   if (currentTrack.value.id === 'Dep_Mode_vinil_A_41') { nextTick('Dep_Mode_vinil_A_41')}
+ }
 }
 
 function playNext(playIndex) { 
@@ -196,7 +195,6 @@ function playNext(playIndex) {
   audio.src = currentTrack.value.url
   audio.play().catch(console.error)
   isPlaying.value = true
-   if (currentTrack.value.id === 'Dep_Mode_vinil_A_41') { nextTick('Dep_Mode_vinil_A_41')}
        emit('track-change', audioRef, currentTrack.value, idplaylist.value)
 }
 
@@ -341,3 +339,4 @@ display: flex;
   color: #278268;    /* text-gray-900 */
 
 } 
+
