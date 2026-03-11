@@ -15,9 +15,9 @@
     <!-- <h2>Плейлист 1: POP UP </h2> -->
     <!-- <button @click="showModal = true">Показать сообщение</button> -->
 
-  <FloatingModal v-model="showModal">
+<--  <FloatingModal v-model="showModal"> -->
  
-  </FloatingModal>
+<--  </FloatingModal> -->
 
   <!-- Общий прогресс-бар -->
   <div class="progress-container" v-if="activeTrack1" @click="onProgressClickG">
@@ -551,5 +551,6 @@ function connectAudioToVisualizer(track) {
   font-weight: 300;  /* font-medium */
   color: #278268;    /* text-gray-900 */
 } 
+
 
 </style>
