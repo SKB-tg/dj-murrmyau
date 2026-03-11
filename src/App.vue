@@ -3,7 +3,7 @@
   <div >
                         <div class="logo-wrapper">
                 <div ref="limg" style="left:0" class="limg"></div>
-                <img  ref="logoImg" src="/DJ_MurrMyau_Album.jpg" class="logo-img" alt="DJ_MurrMyau">
+                <img  ref="logoImg" @click="showModal=true" src="/DJ_MurrMyau_Album.jpg" class="logo-img" alt="DJ_MurrMyau">
                 <div ref="limg" style="right:0" class="limg"></div>
               <div class="cat-eyes">
                     <div class="eye left" :style="{ opacity: eyey }"></div>
@@ -15,9 +15,9 @@
     <!-- <h2>Плейлист 1: POP UP </h2> -->
     <!-- <button @click="showModal = true">Показать сообщение</button> -->
 
-<--  <FloatingModal v-model="showModal"> -->
+<FloatingModal v-model="showModal">
  
-<--  </FloatingModal> -->
+</FloatingModal>
 
   <!-- Общий прогресс-бар -->
   <div class="progress-container" v-if="activeTrack1" @click="onProgressClickG">
@@ -554,3 +554,4 @@ function connectAudioToVisualizer(track) {
 
 
 </style>
+
