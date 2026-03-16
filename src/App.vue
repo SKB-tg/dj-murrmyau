@@ -101,13 +101,17 @@ const thematicTrack = { title: 'Известный', url: 'thematic.mp3' };
     if (canvas.value != null) {ctx.value = canvas.value.getContext('2d')}
 //****************************************** */
 Electron.value = [{"id": "Big_Time_Piter_Gabriel_1986", 'title': 'Big Time Piter Gabriel 1986', 'artist': 'Piter Gabriel', 'url': '/audio/Big_Time_Piter_Gabriel_1986.mp3', "year": "1986", 'duration': 590},
-    {"id": "Zodiak_album_1981_A1_3tr", 'title': 'Zodiak album 1981 A1 3 track', 'artist': 'Zodiak', 'url': '/audio/Zodiak_album_1981_A1_3tr.mp3', "year": "1981", 'duration': 1200},
-   { 'title': 'Track 2003', 'artist': 'DJ Bushwacka', 'url': '/audio/Bushwackas.mp3', "year": "2003", 'duration': 200}, {"id": "107FM_18_BACK_TO_THE_UNIVERSE_2000", 'title': '107FM_18_BACK_TO_THE_UNIVERSE_2000', "year": "2000", 'artist': 'yy kkl', 'url': '/audio/107FM_18_BACK_TO_THE_UNIVERSE_2000.mp3',  'duration': 200},
-    {"id": "Zodiak_album_1981_A2_4tr", 'title': 'Zodiak album 1981 A2 4 track', 'artist': 'Zodiak', 'url': '/audio/Zodiak_album_1981_A2_4tr.mp3', "year": "1981",'duration': 1180},
-{"id": "Dep_Mode_vinil_A_41", 'title': '4 Tracks: Depecne Mode', 'artist': 'Depecne Mode', 'url': '/audio/Dep_Mode_vinil_A_41.mp3', "year": "1986", 'duration': 1200},
+    {"id": "06_BACK_TO_THE_UNIVERSE_ARCHIVES_1999", 'title': '06_BACK_TO_THE_UNIVERSE_ARCHIVES_1999', "year": "1999", 'artist': 'yy kkl', 'url': 'https://s3.ru1.storage.beget.cloud/ff4460111384-artistic-carwyn/dj_mm%2Faudio%2Flongtrack%2F06_BACK_TO_THE_UNIVERSE_ARCHIVES_1999.mp3',  'duration': 6200},
+   {"id": "01_BACK_TO_THE_UNIVERSE_ARCHIVES_1999", 'title': '01_BACK_TO_THE_UNIVERSE_ARCHIVES_1999', "year": "1999", 'artist': '---', 'url': 'https://s3.ru1.storage.beget.cloud/ff4460111384-artistic-carwyn/dj_mm%2Faudio%2Flongtrack%2F01_BACK_TO_THE_UNIVERSE_ARCHIVES_1999.mp3',  'duration': 5200},
+   {"id": "07_BACK_TO_THE_UNIVERSE_ARCHIVES_2024", 'title': '07_BACK_TO_THE_UNIVERSE_ARCHIVES_2024', "year": "2024", 'artist': '---', 'url': 'https://s3.ru1.storage.beget.cloud/ff4460111384-artistic-carwyn/dj_mm%2Faudio%2Flongtrack%2F07_BACK_TO_THE_UNIVERSE_ARCHIVES_2024.mp3',  'duration': 5200},
+   {"id": "107FM_18_BACK_TO_THE_UNIVERSE_2000", 'title': '107FM_18_BACK_TO_THE_UNIVERSE_2000', "year": "2000", 'artist': 'yy kkl', 'url': 'https://s3.ru1.storage.beget.cloud/ff4460111384-artistic-carwyn/dj_mm%2Faudio%2Flongtrack%2F18_BACK_TO_THE_UNIVERSE_ARCHIVES_2000.mp3',  'duration': 6200},
 ]
  rw.value = [{"id": "Dep_Mode_vinil_A_41", 'title': '4 Tracks: Depecne Mode', 'artist': 'Depecne Mode', 'url': '/audio/Dep_Mode_vinil_A_41.mp3', "year": "1986", 'duration': 1200},
-   {"id": "Remix_the_hall_of_the_mountain_king_E_G", "url": "/audio/Remix_the_hall_of_the_mountain_king_E_G.mp3", "title": "Remix 'the Hall of the Mountain King' E. G.", "artist": "DJ MurrMyau", "album": "Black & W   creator DJ MurrMyau", "year": "2025", "duration": 509},
+    {"id": "Zodiak_album_1981_A1_3tr", 'title': 'Zodiak album 1981 A1 3 track', 'artist': 'Zodiak', 'url': '/audio/Zodiak_album_1981_A1_3tr.mp3', "year": "1981", 'duration': 1200},
+   { "id": "Bushwacka_Continuous_Mix", 'title': 'Bushwacka Tracks 2020', 'artist': 'DJ Bushwacka', 'url': 'https://s3.ru1.storage.beget.cloud/ff4460111384-artistic-carwyn/dj_mm%2Faudio%2Flongtrack%2FBushwacka_Continuous_Mix.mp3', "year": "2003", 'duration': 4682},
+   { 'title': 'Track 2003', 'artist': 'DJ Bushwacka', 'url': '/audio/Bushwackas.mp3', "year": "2003", 'duration': 1200}, 
+     {"id": "Zodiak_album_1981_A2_4tr", 'title': 'Zodiak album 1981 A2 4 track', 'artist': 'Zodiak', 'url': '/audio/Zodiak_album_1981_A2_4tr.mp3', "year": "1981",'duration': 1180},
+{"id": "Remix_the_hall_of_the_mountain_king_E_G", "url": "/audio/Remix_the_hall_of_the_mountain_king_E_G.mp3", "title": "Remix 'the Hall of the Mountain King' E. G.", "artist": "DJ MurrMyau", "album": "Black & W   creator DJ MurrMyau", "year": "2025", "duration": 509},
     {"id": "Adrenalin", "url": "/audio/Adrenalin.mp3", "title": "Adrenalin", "artist": "DJ MurrMyau", "album": "Black & W   creator DJ MurrMyau",  "year": "2025", "duration": 175},
 {"id": "L_D_mix", 'title': 'Remix "Beliver"', 'artist': 'DJ MurrMyau', "year": "2025", "album": "Black & W   creator DJ MurrMyau", 'url': '/audio/I_D_mix.mp3', 'duration': 300 }]
 // Общее состояние для всех плееров
