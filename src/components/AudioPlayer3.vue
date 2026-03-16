@@ -28,7 +28,7 @@
     </div>
 
     <!-- Скрытый аудио-элемент -->
-    <audio ref="audioRef" preload="metadata"></audio>
+    <audio ref="audioRef" crossorigin="anonymous" preload="metadata"></audio>
   </div>
     </div>
 
