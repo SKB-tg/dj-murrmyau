@@ -112,9 +112,9 @@ Electron.value = [{"id": "Big_Time_Piter_Gabriel_1986", 'title': 'Big Time Piter
    { 'title': 'Track 2003', 'artist': 'DJ Bushwacka', 'url': '/audio/Bushwackas.mp3', "year": "2003", 'duration': 1200}, 
      {"id": "Zodiak_album_1981_A2_4tr", 'title': 'Zodiak album 1981 A2 4 track', 'artist': 'Zodiak', 'url': '/audio/Zodiak_album_1981_A2_4tr.mp3', "year": "1981",'duration': 1180},
 {"id": "Remix_the_hall_of_the_mountain_king_E_G", "url": "/audio/Remix_the_hall_of_the_mountain_king_E_G.mp3", "title": "Remix 'the Hall of the Mountain King' E. G.", "artist": "DJ MurrMyau", "album": "Black & W   creator DJ MurrMyau", "year": "2025", "duration": 509},
-    {"id": "Adrenalin", "url": "/audio/Adrenalin.mp3", "title": "Adrenalin", "artist": "DJ MurrMyau", "album": "Black & W   creator DJ MurrMyau",  "year": "2025", "duration": 175},
+{"id": "morning_trash", "url": "https://s3.ru1.storage.beget.cloud/ff4460111384-artistic-carwyn/dj_mm%2Faudio%2Frecomendation%2Fmorning_trash.mp3", "title": "Morning trash", "artist": "DJ MurrMyau", "album": "Black & W  creator DJ MurrMyau", "year": "2026", "duration": 926},    {"id": "Adrenalin", "url": "/audio/Adrenalin.mp3", "title": "Adrenalin", "artist": "DJ MurrMyau", "album": "Black & W   creator DJ MurrMyau",  "year": "2025", "duration": 175},
 {"id": "L_D_mix", 'title': 'Remix "Beliver"', 'artist': 'DJ MurrMyau', "year": "2025", "album": "Black & W   creator DJ MurrMyau", 'url': '/audio/I_D_mix.mp3', 'duration': 300 }]
-// Общее состояние для всех плееров
+// Общее состояние для всех плееров 
 const activeTrack1 = ref(null)
 const globalProgress = ref(0)
 const stop1 = ref(false)
